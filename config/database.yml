@@ -1,0 +1,29 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  collation: utf8_general_ci
+  pool: 5
+  host: localhost # <%= ENV['DATABASE_HOST'] || '127.0.0.1' %>
+  port: 3306
+  username: root # <%= ENV['DATABASE_USER'] || 'root' %>
+  password: root # <%= ENV['DATABASE_PASS'] || 'magic123' %>
+
+development:
+  <<: *default
+  database: jwtauth_development
+production:
+  <<: *default
+  database: jwtauth_development
+
+
+############   staging database ###############
+# development:
+#   <<: *default
+#   database: peatio_arseniy_production
+#   host: cezex-staging.c1ewvqstfjes.ap-southeast-1.rds.amazonaws.com
+#   username: cezex
+#   password: 7VDgpbbgkdrwE2dvVX7KUQqK
+
+test:
+  <<: *default
+  database: jwtauth_test
